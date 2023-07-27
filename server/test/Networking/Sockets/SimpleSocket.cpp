@@ -1,4 +1,4 @@
-#include <SimpleSocket.hpp>
+#include "SimpleSocket.hpp"
 
 http:SimpleSocket::SimpleSocket(int domain,int service,int protocol,int port,u_long interface)
 {
@@ -11,9 +11,7 @@ http:SimpleSocket::SimpleSocket(int domain,int service,int protocol,int port,u_l
 	sock=socket(domain,service,protocol);
 	test_connection(sock)
 
-	// Establish network connection
-	connection = connect_to_network(sock,address);
-	test_connection(connection);
+
 }
 // test connection virtual function
 void http::SimpleSocket::test_connection(int item)
@@ -38,8 +36,10 @@ int http::SimpleSocket::get_sock()
 }
 
 
-int http::SimpleSocket::get_connection()
-{
-	return connection;
-}
 
+
+// setter functions
+void http::SimpleSocket::set_connection(int con)
+{
+	connection=con;
+}
