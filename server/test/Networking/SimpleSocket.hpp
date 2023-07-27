@@ -19,11 +19,18 @@ namespace http
 		SimpleSocket(int domain,int service,int protocol,int port,u_long interface)
 		~SimpleSocket();
 		// virtual function to connect to network
-		virtual connect_to_network(int sock,struct socket_adder_in address)=0;
+		virtual int connect_to_network(int sock,struct socket_adder_in address)=0;
+
+		// function to test socket
 		void test_connection(sock);
+
+		// getter functions
 		struct sockaddr_in get_address();
 		int get_sock();
 		int get_connection();
+
+		// setter functions 
+		void set_connection(int con);
 	};
 }
 
