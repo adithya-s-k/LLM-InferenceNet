@@ -11,7 +11,7 @@ namespace http
 	{
 	public:
 		// constructor 	
-		ConnectingSocket(int domain,int service,int protocol,u_long interface);
+		ConnectingSocket(int domain,int service,int protocol,int port,u_long interface);
 		
 		~ConnectingSocket();
 		

@@ -10,7 +10,7 @@ namespace http
 	{
 	public:
 		// constructor 
-		BindingSocket(int domain,int service,int protocol,u_long interface);
+		BindingSocket(int domain,int service,int protocol,int port,u_long interface);
 		
 		~BindingSocket();
 		
