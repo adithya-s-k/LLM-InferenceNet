@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>GET Test Page</title>
+</head>
+<body>
+    <h1>GET Test Page</h1>
+    <script>
+        fetch('/api/get_test')
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('message').innerText = data.message;
+            })
+            .catch(error => console.error('Error:', error));
+    </script>
+    <p id="message">Waiting for response...</p>
+</body>
+</html>
