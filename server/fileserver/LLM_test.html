@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>LLM Test Page</title>
+</head>
+<body>
+    <h1>LLM Test Page</h1>
+    <script>
+        fetch('/api/llm_test', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({})
+        })
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('message').innerText = data.message;
+            })
+            .catch(error => console.error('Error:', error));
+    </script>
+    <p id="message">Waiting for response...</p>
+</body>
+</html>

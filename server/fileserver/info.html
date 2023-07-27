@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Choose Your Option</title>
+</head>
+<body>
+    <h1>Choose Your Option</h1>
+    <form method="GET">
+        <label for="option">Select an option:</label>
+        <select name="option" id="option">
+            <option value="get">Test GET</option>
+            <option value="post">Test POST</option>
+            <option value="llm">Test LLM</option>
+        </select>
+        <br>
+        <input type="submit" value="Submit">
+    </form>
+
+    <script>
+        document.querySelector('form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const selectedOption = document.getElementById('option').value;
+            window.location.href = `${selectedOption}_test.html`;
+        });
+    </script>
+</body>
+</html>
