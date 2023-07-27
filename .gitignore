@@ -1,0 +1,7 @@
+Makefile
+run
+run.c
+a.exe
+tokenizer.bin
+model.bin
+/embeddings
