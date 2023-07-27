@@ -1,4 +1,4 @@
-##ifndef ListeningSocket_hpp
+#ifndef ListeningSocket_hpp
 #define ListeningSocket_hpp 
 
 #include <stdio.h>

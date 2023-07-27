@@ -15,13 +15,13 @@ namespace http
 		int sock;
 	public:
 		// constructor
-		SimpleSocket(int domain,int service,int protocol,int port,u_long interface)
-		~SimpleSocket();
+		SimpleSocket::SimpleSocket(int domain,int service,int protocol,int port,u_long interface);
+		
 		// virtual function to connect to network
 		virtual int connect_to_network(int sock,struct socket_adder_in address)=0;
 
 		// function to test socket
-		void test_connection(sock);
+		void test_connection(int item);
 
 		// getter functions
 		struct sockaddr_in get_address();

@@ -1,4 +1,4 @@
-##ifndef SimpleServer_hpp
+#ifndef SimpleServer_hpp
 #define SimpleServer_hpp 
 
 #include <stdio.h>
