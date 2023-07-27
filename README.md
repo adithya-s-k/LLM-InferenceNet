@@ -42,6 +42,16 @@ To get started with LLM InferenceNet, follow these steps:
 
 Detailed installation instructions and usage guidelines can be found in the `docs/` directory.
 
+## Quick start
+
+```bash
+mkdir build && cd build
+cmake ..
+make
+./test_SimpleHttpServer # Run unit tests
+./SimpleHttpServer      # Start the HTTP server on port 8080
+```
+
 ## Contribution
 
 Contributions to LLM InferenceNet are highly appreciated. If you have any ideas, bug fixes, or enhancements, please feel free to open an issue or submit a pull request. Together, we can make this project even more powerful and efficient.
