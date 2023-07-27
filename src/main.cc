@@ -40,6 +40,7 @@ void ensure_enough_resource(int resource, std::uint32_t soft_limit,
   }
 }
 
+
 int main(void) {
   std::string host = "0.0.0.0";
   int port = 8080;
@@ -52,6 +53,7 @@ int main(void) {
     response.SetContent("Hello, world\n");
     return response;
   };
+
   auto send_html = [](const HttpRequest& request) -> HttpResponse {
     HttpResponse response(HttpStatusCode::Ok);
     std::string content;
@@ -66,10 +68,23 @@ int main(void) {
     return response;
   };
 
+
+  auto handle_post_request = [](const HttpRequest& request) -> HttpResponse {
+    HttpResponse response(HttpStatusCode::Ok);
+    std::cout << "request content: " << request.content() << std::endl;
+    response.SetHeader("Content-Type", "text/html");
+    response.SetContent("Data added\n");
+    return response;
+};
+
+
   server.RegisterHttpRequestHandler("/", HttpMethod::HEAD, say_hello);
   server.RegisterHttpRequestHandler("/", HttpMethod::GET, say_hello);
   server.RegisterHttpRequestHandler("/hello.html", HttpMethod::HEAD, send_html);
   server.RegisterHttpRequestHandler("/hello.html", HttpMethod::GET, send_html);
+  server.RegisterHttpRequestHandler("/add_data", HttpMethod::HEAD, handle_post_request);
+  server.RegisterHttpRequestHandler("/add_data", HttpMethod::POST, handle_post_request);
+
 
   try {
     // std::cout << "Setting new limits for file descriptor count.." <<
@@ -80,7 +95,7 @@ int main(void) {
 
     std::cout << "Starting the web server.." << std::endl;
     server.Start();
-    std::cout << "Server listening on " << host << ":" << port << std::endl;
+    std::cout << "Server listening on " << "http://localhost" << ":" << port << std::endl;
 
     std::cout << "Enter [quit] to stop the server" << std::endl;
     std::string command;

@@ -224,4 +224,4 @@ HttpResponse string_to_response(const std::string& response_string) {
   throw std::logic_error("Method not implemented");
 }
 
-}  // namespace simple_http_server
+}
