@@ -15,8 +15,10 @@ namespace http
 		int sock;
 		int connection;
 	public:
+		// constructor
 		SimpleSocket(int domain,int service,int protocol,int port,u_long interface)
 		~SimpleSocket();
+		// virtual function to connect to network
 		virtual connect_to_network(int sock,struct socket_adder_in address)=0;
 		void test_connection(sock);
 		struct sockaddr_in get_address();

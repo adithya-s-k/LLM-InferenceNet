@@ -15,10 +15,10 @@ http:SimpleSocket::SimpleSocket(int domain,int service,int protocol,int port,u_l
 	connection = connect_to_network(sock,address);
 	test_connection(connection);
 }
-
-
+// test connection virtual function
 void http::SimpleSocket::test_connection(int item)
 {
+	// confirms that the object has been created properly
 	if (item<0)
 	{
 		std::cout<<"failed to connect to socket"<<std::endl;
@@ -26,7 +26,20 @@ void http::SimpleSocket::test_connection(int item)
 	}
 }
 
+// functions to retrive data items
 struct sockaddr_in http::SimpleSocket::get_address()
 {
-	
+	return address;
 }
+
+int http::SimpleSocket::get_sock()
+{
+	return sock;
+}
+
+
+int http::SimpleSocket::get_connection()
+{
+	return connection;
+}
+
